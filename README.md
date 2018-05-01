@@ -15,8 +15,12 @@ MCU inflation adjusted movie releases and their earnin
 
 It from visual examination, looks as though there was almost always a spike shortly after a MCU movie is released.
 
-TODO: qualify that.
+## Example: Thor 
 
-## Example: Thor: Ragnarok
+![Thor](./results/Thor.png)
 
-[Thor release against DIS stock price](results/Thor: Ragnarok.png)
+## Roadmap:
+
+- Calculate implied volitility leading up to and after a release
+- generate a model for predicting future releases.
+- Was there any broader trends that would render false positives?

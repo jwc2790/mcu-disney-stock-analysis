@@ -12,12 +12,17 @@ plots the stock data as a movie is released and saves it to the results folder.
 
 
 def create_plot(data, title='', save=False):
-    plt.plot(data)
+    fig = plt.figure()
+    plt.plot(data.index, data['adj_close'])
     plt.ylabel('price')
     plt.xlabel('date')
+    # rotate the x axis so that the dates fit better
+    plt.xticks(rotation=45)
     plt.title(title)
     if save:
-        plt.savefig(f'./results/{title}.png')
+        fig.subplots_adjust(bottom=0.3)
+        # str interpolation
+        fig.savefig(f'./results/{title}.png')
     else:
         plt.show()
 
@@ -35,8 +40,7 @@ def lookup_dis_price(df, start, end):
 reads in historical stock data, as well as mcu movie release data
 loops over the movie releases and looks up the stock data before and after the movie release
 generate a graph with the following data points:
-    - volume
-    - close price
+    - adjusted close price
 """
 
 
@@ -59,7 +63,7 @@ def main():
         start = movie_release_date - delta
         end = movie_release_date + delta
         data = lookup_dis_price(dis_data_frame, start, end)
-        create_plot(data, movie[1])
+        create_plot(data, movie[1], True)
 
 
 if __name__ == "__main__":

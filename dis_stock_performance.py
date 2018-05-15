@@ -2,6 +2,7 @@
 @author Joe Cuffney <josephcuffney@gmail.com>
 """
 import datetime
+
 import matplotlib.pyplot as plt  # plot library
 import pandas as pd  # python data analysis toolkit
 
